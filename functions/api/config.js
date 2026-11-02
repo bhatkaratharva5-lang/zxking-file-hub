@@ -3,25 +3,21 @@ export async function onRequestGet({ env }) {
   const supabaseKey = env.SUPABASE_PUBLISHABLE_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    return new Response(
-      JSON.stringify({ error: "Server configuration missing" }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" }
-      }
+    return Response.json(
+      { error: "Missing Supabase configuration." },
+      { status: 500 }
     );
   }
 
-  return new Response(
-    JSON.stringify({
-      supabaseUrl,
-      supabaseKey
-    }),
+  return Response.json(
+    {
+      url: supabaseUrl,
+      key: supabaseKey
+    },
     {
       headers: {
-        "Content-Type": "application/json",
         "Cache-Control": "no-store"
       }
     }
   );
-    }
+}
