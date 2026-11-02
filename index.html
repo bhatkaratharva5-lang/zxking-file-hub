@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>ZXKING File Hub</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="top"><div class="brand">⚡ ZXKING <span>FILE HUB</span></div><span id="account-label">Not signed in</span></header>
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow">PRIVATE STORAGE · SECURE SHARING</p>
+      <h1>Share files.<br><span>Keep control.</span></h1>
+      <p>Upload a file to your private storage and create a temporary secure download link.</p>
+    </section>
+
+    <section class="panel" id="auth-panel">
+      <h2>Your account</h2>
+      <label>Email<input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+      <label>Password<input id="password" type="password" autocomplete="current-password" placeholder="At least 6 characters"></label>
+      <div class="actions">
+        <button id="signup-btn" class="secondary">Create account</button>
+        <button id="login-btn">Log in</button>
+      </div>
+      <p class="hint" id="auth-message">Create an account or log in to upload and manage your files.</p>
+    </section>
+
+    <section class="panel hidden" id="upload-panel">
+      <div class="section-head"><div><p class="eyebrow">YOUR SPACE</p><h2>Upload a file</h2></div><button id="logout-btn" class="secondary small">Log out</button></div>
+      <label class="file-picker">Choose a file<input id="file-input" type="file"></label>
+      <p class="hint">Maximum file size: 50 MB. Keep this page open while uploading.</p>
+      <div class="progress hidden" id="progress-wrap"><div id="progress-bar"></div></div>
+      <p class="hint" id="upload-message"></p>
+      <button id="upload-btn">Upload securely</button>
+    </section>
+
+    <section class="panel hidden" id="files-panel">
+      <div class="section-head"><div><p class="eyebrow">YOUR LIBRARY</p><h2>Your files</h2></div><button id="refresh-btn" class="secondary small">Refresh</button></div>
+      <div id="file-list" class="file-list"><p class="hint">Log in to view your files.</p></div>
+    </section>
+    <p class="foot">ZXKING File Hub · Files are stored in a private Supabase bucket.</p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
